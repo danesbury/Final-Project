@@ -15,10 +15,40 @@
 {% endblock %}
 
 {% block lookup %}
-<div align="center">
+<div class="container">
     <h1>
         <b>Look Up</b>
     </h1>
+    <form id="selectteam">
+        <div class="form-group">
+            <label for="teams">Pick a team to find out their background data:</label>
+            <select class="form-control" id="teams">
+                <option value="AFC+Bournemouth">AFC Bournemouth</option>
+                <option value="Arsenal" input=text>Arsenal</option>
+                <option value="Burnley">Burnley</option>
+                <option value="Chelsea">Chelsea</option>
+                <option value="Crystal+Palace">Crystal Palace</option>
+                <option value="Everton">Everton</option>
+                <option value="Hull+City">Hull City</option>
+                <option value="Leicester+City">Leicester City</option>
+                <option value="Manchester+City">Manchester City</option>
+                <option value="Manchester+United">Manchester United</option>
+                <option value="Middlesbrough">Middlesbrough</option>
+                <option value="Southampton">Southampton</option>
+                <option value="Stoke">Stoke City</option>
+                <option value="Sunderland">Sunderland</option>
+                <option value="Swansea+City">Swansea City</option>
+                <option value="Tottenham+Hotspur">Tottenham Hotspur</option>
+                <option value="Watford">Watford</option>
+                <option value="West+Bromwich+Albion">West Bromwich Albion</option>
+                <option value="West+Ham+United">West Ham United</option>
+            </select>
+            <div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+    <div id="teamdata"></div>
 </div>
 
 {% endblock %}

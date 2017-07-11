@@ -6,16 +6,47 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
             body {
                 position: relative;
             }
             #welcome {padding-top:50px;height:500px;color: #ffffff; background-color: #35065E;}
-            #lookup {padding-top:50px;height:500px;color: #ffffff; background-color: #DA0E3C;}
-            #predict {padding-top:50px;height:500px;color: #ffffff; background-color: #35065E;}        
+            #lookup {padding-top:50px;height:400px;color: #ffffff; background-color: #DA0E3C;}
+            #predict {padding-top:50px;height:500px;color: #ffffff; background-color: #35065E;} 
+
+
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th, tr {    
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+        </script>
+        <script>
+            $(document).ready(function() {
+               $('#selectteam').submit(function(event) {
+                   event.preventDefault();
+                   
+                   var url = '/lookup?team='+$("#teams").val();
+                   
+                   $.getJSON(url, function(data) {
+                       var table="<table style=\"width:100%\"><tr><th>Team Name</th><th>Goals Scored</th><th>Goals Conceded</th></tr><tr>";
+                       table=table+"<td>" + data[0].team_name + "</td><td>" + data[0].gf + "</td><td>" + data[0].ga + "</td></tr>"+"</table>";
+                       $("#teamdata").html(table);
+                   });
+               }); 
+            });
+        </script>
         
         <title>Premier League Predictor</title>
     </head>
